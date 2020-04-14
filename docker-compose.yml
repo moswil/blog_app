@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  django_blog_app:
+    image: "django_blog_app:v1"
+    container_name: "blog_app"
+    # command: python manage.py runserver
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
