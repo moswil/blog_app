@@ -11,6 +11,7 @@ autopep8 = "*"
 gunicorn = "*"
 psycopg2 = "*"
 flake8 = "*"
+mysqlclient = "*"
 
 [requires]
 python_version = "3.7"

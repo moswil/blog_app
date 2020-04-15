@@ -343,6 +343,7 @@ media/
 
 postgres_data/
 postgres_data_dev/
+mariadb_data_dev/
 
 static_volume/
 media_volume/
