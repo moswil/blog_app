@@ -333,3 +333,18 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/linux,macos,django,python,windows,intellij+all,visualstudiocode
+
+# Skip all .env files
+*.env
+!*.sample
+
+static/
+media/
+
+postgres_data/
+postgres_data_dev/
+
+static_volume/
+media_volume/
+
+run.sh

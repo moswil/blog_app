@@ -1,11 +1,28 @@
-version: "3.6"
+version: "3.7"
+
 services:
-  django_blog_app:
-    image: "django_blog_app:v1"
-    container_name: "blog_app"
-    # command: python manage.py runserver
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - 8000:8000
+    env_file: ./env/app/dev.env
+    depends_on:
+      - db
     restart: unless-stopped
+
+  db:
+    build: ./postgres
+    restart: unless-stopped
+    volumes:
+      - ./postgres_data_dev:/var/lib/postgresql/data/
+    env_file: ./env/db/db.dev.env
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres_data_dev:
