@@ -14,7 +14,8 @@ def main():
             warnings.filterwarnings('error')
             read_dotenv('env/app/test.env')
         except UserWarning:
-            read_dotenv()
+            # read_dotenv()
+            pass
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_app.settings')
     try:
