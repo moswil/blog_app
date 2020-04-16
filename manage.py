@@ -2,9 +2,20 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import warnings
+
+from dotenv import read_dotenv
 
 
 def main():
+    # TODO: Add this in a try/except block for FileNotFound on travis
+    with warnings.catch_warnings():
+        try:
+            warnings.filterwarnings('error')
+            read_dotenv('env/app/test.env')
+        except UserWarning:
+            read_dotenv()
+
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_app.settings')
     try:
         from django.core.management import execute_from_command_line

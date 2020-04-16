@@ -1,3 +1,8 @@
 from django.test import TestCase
 
-# Create your tests here.
+from . models import Post
+
+
+class PostTestCase(TestCase):
+    def test_base(self):
+        assert 1 == 1

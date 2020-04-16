@@ -12,6 +12,7 @@ gunicorn = "*"
 psycopg2 = "*"
 flake8 = "*"
 mysqlclient = "*"
+django-dotenv = "*"
 
 [requires]
 python_version = "3.7"
