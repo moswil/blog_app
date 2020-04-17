@@ -1,8 +1,11 @@
 from django.test import TestCase
 
-from . models import Post
+from blog.models import Post
 
 
 class PostTestCase(TestCase):
-    def test_base(self):
-        assert 1 == 1
+
+    def test_post(self):
+        post = Post(title="First Blog", content="First Blog Content")
+        self.assertEqual(post.title, "First Blog")
+        self.assertEqual(post.content, "First Blog Content")
