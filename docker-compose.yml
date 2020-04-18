@@ -2,6 +2,9 @@ version: "3.7"
 
 services:
   web:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: django_blog_app:v1
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -23,4 +26,4 @@ services:
       - 3306:3306
 
 volumes:
-  postgres_data_dev:
+  mariadb_data_dev:

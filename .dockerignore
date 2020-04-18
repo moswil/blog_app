@@ -17,5 +17,5 @@ static
 media
 .pytest_cache
 .dockerignore
-db.sqlite
+db.sqlite3
 run.sh
