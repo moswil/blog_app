@@ -1,4 +1,6 @@
 __pycache__
+.travis.yml
+.DS_Store
 .git
 .gitignore
 Dockerfile*
@@ -6,3 +8,14 @@ docker-compose*
 README.md
 LICENSE
 .vscode
+*.env
+postgres_data
+mariadb_data_dev
+logs
+env
+static
+media
+.pytest_cache
+.dockerignore
+db.sqlite
+run.sh
