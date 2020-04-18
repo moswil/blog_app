@@ -8,6 +8,11 @@ verify_ssl = true
 [packages]
 django = "*"
 autopep8 = "*"
+gunicorn = "*"
+psycopg2 = "*"
+flake8 = "*"
+mysqlclient = "*"
+django-dotenv = "*"
 
 [requires]
 python_version = "3.7"

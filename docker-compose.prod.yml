@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  web:
+    # build:
+    #   context: ./
+    #   dockerfile: Dockerfile.prod
+    image: moswil/blog_app:v1
+    command: gunicorn --workers=3 blog_app.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/app/web/static
+      - media_volume:/home/app/web/media
+    expose:
+      - 8000
+    env_file: ./env/app/prod.env
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    build: ./postgres
+    restart: unless-stopped
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    env_file: ./env/db/db.prod.env
+    ports:
+      - 5432:5432
+
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    restart: unless-stopped
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/web/static
+      - media_volume:/home/app/web/media
+      - ./logs:/home/app/web/logs
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

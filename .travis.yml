@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.8"
+before_install:
+  - pip3 install --upgrade pip
+  - pip3 install pipenv
+install:
+  - pipenv install --skip-lock --system --dev
+script:
+  - python manage.py test
+# after_success:
+#   - codecov
