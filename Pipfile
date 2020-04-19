@@ -13,6 +13,7 @@ psycopg2 = "*"
 flake8 = "*"
 mysqlclient = "*"
 django-dotenv = "*"
+django-crispy-forms = "*"
 
 [requires]
 python_version = "3.7"

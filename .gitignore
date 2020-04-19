@@ -338,7 +338,7 @@ $RECYCLE.BIN/
 *.env
 !*.sample
 
-static/
+static/*
 media/
 
 postgres_data/
