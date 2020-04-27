@@ -14,6 +14,7 @@ flake8 = "*"
 mysqlclient = "*"
 django-dotenv = "*"
 django-crispy-forms = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"

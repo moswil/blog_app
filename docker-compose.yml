@@ -17,7 +17,8 @@ services:
     restart: always
 
   db:
-    image: mariadb:10.5
+    build:
+      context: ./mariadb
     restart: unless-stopped
     volumes:
       - ./mariadb_data_dev:/var/lib/mysql/

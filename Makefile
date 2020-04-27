@@ -43,3 +43,9 @@ dev_check_logs:
 
 dev_restart:
 	docker-compose -f docker-compose.yml restart
+
+dev_tests:
+	docker-compose -f docker-compose.yml exec web python manage.py test
+
+dev_db_ssh:
+	docker-compose -f docker-compose.yml exec db /bin/bash 
